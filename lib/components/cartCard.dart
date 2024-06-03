@@ -59,10 +59,10 @@ class _BookCardState extends State<CartCard>
                     iconSize: 22,
                     icon: const Icon(Icons.add),
                     onPressed: () {
-                      if(books[widget.id].quantity > 0) {
+
                         books[widget.id].quantity += 1;
                         setState(() {});
-    }
+
                     },
                   ),
                 ]
