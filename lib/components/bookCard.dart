@@ -37,7 +37,7 @@ class BookCard extends StatefulWidget{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(books[widget.id].listPhoto[widget.id]),
+            Image.network(books[widget.id].listPhoto[0]),
             Text(books[widget.id].price.toString() + "р."),
             Text(books[widget.id].name),
             Text(books[widget.id].author),
@@ -70,7 +70,12 @@ class BookCard extends StatefulWidget{
                       foregroundColor: Colors.black87,
                     ),
                     child: Image.asset('assets/cart.png',width: 20.0, height: 20.0),
-                    onPressed: (){}
+                    onPressed: (){
+                      if (!booksToBy.contains(widget.id)){
+                        booksToBy.add(widget.id);
+                        books[widget.id].quantity = 1;
+                      }
+                    }
                 ),
               ]
             ),

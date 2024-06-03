@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:book/components/bookCard.dart';
+import 'package:book/components/cartCard.dart';
+import 'package:book/pages/favoritePage.dart';
 import 'package:book/data/favorite.dart';
-import 'package:book/pages/shopMain.dart';
 
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({super.key});
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Избранное'),
+        title: const Text(''),
         actions: [
           IconButton(
-            icon: Image.asset('assets/starF.png',width: 20.0, height: 20.0),
+            icon: Image.asset('assets/star.png',width: 20.0, height: 20.0),
             tooltip: 'Open shopping cart',
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ShopMain()),);
+                MaterialPageRoute(builder: (context) => const FavoritePage()),);
             },
           ),
           IconButton(
@@ -38,10 +38,10 @@ class FavoritePage extends StatelessWidget {
               childAspectRatio: 0.45,
               crossAxisSpacing: 8,
               mainAxisSpacing: 8),
-          itemCount: favoriteBooks.length,
+          itemCount: booksToBy.length,
           itemBuilder: (BuildContext context, int index)
           {
-            return BookCard(id : favoriteBooks[index]);
+            return CartCard(id : index);
           },
 
         ),

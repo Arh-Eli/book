@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:book/components/bookCard.dart';
 import 'package:book/pages/favoritePage.dart';
 import 'package:book/data/bookData.dart';
+import 'package:book/pages/cartPage.dart';
 
 
 class ShopMain extends StatelessWidget {
@@ -26,7 +27,9 @@ class ShopMain extends StatelessWidget {
             icon: Image.asset('assets/cart.png',width: 20.0, height: 20.0),
             tooltip: 'Open shopping cart',
             onPressed: () {
-              // handle the press
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CartPage()),);
             },
           ),
         ],
@@ -35,7 +38,7 @@ class ShopMain extends StatelessWidget {
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
-              childAspectRatio: 0.55,
+              childAspectRatio: 0.45,
               crossAxisSpacing: 8,
               mainAxisSpacing: 8),
           itemCount: books.length,
